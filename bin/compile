@@ -9,12 +9,22 @@ CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
 echo "BUILD_DIR: $BUILD_DIR"
+ls -la $BUILD_DIR
+
 echo "CACHE_DIR: $CACHE_DIR"
+ls -la $CACHE_DIR
+
 echo "ENV_DIR: $ENV_DIR"
 ls -la $ENV_DIR
+pwd
+ls -la
 
 if [ -f $ENV_DIR/PROJECT_PATH ]; then
+	echo "555555"
 	PROJECT_PATH=`cat $ENV_DIR/PROJECT_PATH`
+	echo $PROJECT_PATH
+	echo "check ---- $BUILD_DIR/$PROJECT_PATH"
+
 	if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
 		echo "-----> Subdir buildpack in $PROJECT_PATH"
 		echo "       creating cache: $CACHE_DIR"
